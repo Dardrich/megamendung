@@ -1,7 +1,8 @@
-Berisi:
-- Tautan menuju aplikasi PWS yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.
-- Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-- Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-- Jelaskan fungsi git dalam pengembangan perangkat lunak!
-- Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
-- Mengapa model pada Django disebut sebagai ORM?
+---
+# megamendung
+---
+
+Tautan ke aplikasi PWS dapat diakses melalui tautan:
+https://darren-aldrich-megamendung.pbp.cs.ui.ac.id/
+Jawaban atas pertanyaan-pertanyaan yang diberikan dapat diakses melalui tautan: 
+**[TI_PBP_2](https://docs.google.com/document/d/1SBuiS4JFC5z7UnF07q1i2COCp1rSSoh2DbV8wyAFt3g/edit?usp=sharing)**
