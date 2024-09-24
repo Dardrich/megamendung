@@ -3,8 +3,8 @@
 
 <h1>{{ app_name }}</h1>
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
+<h5>Username: </h5>
+<p>{{ username }}<p>
 <h5>Class: </h5>
 <p>{{ class }}<p>
 
@@ -35,4 +35,11 @@
 <a href="{% url 'main:create_product_entry' %}">
     <button>Add New Product</button>
 </a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 {% endblock content %}
