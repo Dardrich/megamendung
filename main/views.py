@@ -10,18 +10,24 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from datetime import timedelta
 
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
     product_entries = ProductEntry.objects.all()
+
+    if request.user.last_login:
+        last_login_gmt_plus_7 = request.user.last_login + timedelta(hours=7)
+    else:
+        last_login_gmt_plus_7 = None
     
     context = {
         'app_name': 'megamendung',
         'username': request.user.username,
         'class': 'PBP F',
         'product_entries': product_entries,
-        'last_login': request.user.last_login,# request.COOKIES['last_login'],
+        'last_login':  last_login_gmt_plus_7,# request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
@@ -90,3 +96,19 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def edit_product(request, id):
+    product = ProductEntry.objects.get(pk=id)
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    product = ProductEntry.objects.get(pk=id)
+    product.delete()
+    
+    return HttpResponseRedirect(reverse('main:show_main'))
