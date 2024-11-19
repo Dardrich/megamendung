@@ -31,6 +31,8 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "darren-aldrich-megamendung.pbp.cs.ui.ac.id",
+    "10.0.2.2",
+    
 ]
 
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    "authentication",
     
 ]
 
@@ -56,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'megamendung.urls'
@@ -144,3 +148,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://darren-aldrich-megamendung.pbp.cs.ui.ac.id",
     ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
